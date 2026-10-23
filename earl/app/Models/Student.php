@@ -10,8 +10,7 @@ class Student extends Model
         'student_id',
         'first_name',
         'last_name',
-        'email',
-        'phone',
-        'address',
+        'course',
+        'year_level',
     ];
 }

@@ -24,9 +24,8 @@ class StudentController extends Controller
             'student_id' => 'required|string|max:50|unique:students,student_id',
             'first_name' => 'required|string|max:255',
             'last_name'  => 'required|string|max:255',
-            'email'      => 'required|email|max:255|unique:students,email',
-            'phone'      => 'required|string|max:11', 
-            'address'    => 'required|string|max:255',
+            'course'     => 'required|string|max:50',
+            'year_level' => 'required|integer|max:8',
         ]);
 
         $student = Student::create($validated);
@@ -48,14 +47,8 @@ class StudentController extends Controller
             ],
             'first_name' => 'required|string|max:255',
             'last_name'  => 'required|string|max:255',
-            'email'      => [
-                'required',
-                'email',
-                'max:255',
-                Rule::unique('students', 'email')->ignore($student->id),
-            ],
-            'phone'      => 'required|string|max:11',
-            'address'    => 'required|string|max:255',
+            'course'     => 'required|string|max:50',
+            'year_level' => 'required|integer|max:8',
         ]);
 
         $student->update($validated);
