@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
       
         User::updateOrCreate(
-            ['email' => 'admin@test.com'],
+            ['email' => 'earlfermilan0@gmail.com'],
             [
                 'name' => 'Admin User',
                 'password' => Hash::make('12345678'),
@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         );
 
         User::updateOrCreate(
-            ['email' => 'user@test.com'],
+            ['email' => 'efermilan@ssct.edu.ph'],
             [
                 'name' => 'Regular User',
                 'password' => Hash::make('password123'),
