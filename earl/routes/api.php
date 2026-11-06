@@ -11,7 +11,7 @@ use App\Http\Controllers\StudentController;
 |--------------------------------------------------------------------------
 */
 // Login endpoint to generate token
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Read-only access: Accessible by both Administrator and Regular User
     Route::get('/students', [StudentController::class, 'index']);
-    Route::get('/students/{id}', [StudentController::class, 'show']);
+    Route::get('/students/{student}', [StudentController::class, 'show']);
 
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
     */
     Route::middleware('role:admin')->group(function () {
         Route::post('/students', [StudentController::class, 'store']);
-        Route::put('/students/{id}', [StudentController::class, 'update']);
-        Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+        Route::put('/students/{student}', [StudentController::class, 'update']);
+        Route::delete('/students/{student}', [StudentController::class, 'destroy']);
     });
 });
